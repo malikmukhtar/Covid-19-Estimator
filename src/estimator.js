@@ -1,25 +1,38 @@
+const impactInfectionsByRequestedTime = (data) => {
+  if (data === 'days') {
+    return Math.trunc(data.timeToElapse / 3);
+  }
+  if (data === 'weeks') {
+    return Math.trunc((data.timeToElapse * 7) / 3);
+  }
+  if (data === 'months') {
+    return Math.trunc((data.timeToElapse * 30) / 3);
+  }
+  return 0;
+};
+
+const severeInfectionsByRequestedTime = (data) => {
+  if (data === 'days') {
+    return Math.trunc(data.timeToElapse / 3);
+  }
+  if (data === 'weeks') {
+    return Math.trunc((data.timeToElapse * 7) / 3);
+  }
+  if (data === 'months') {
+    return Math.trunc((data.timeToElapse * 30) / 3);
+  }
+  return 0;
+};
+
 const covid19ImpactEstimator = (data) => ({
-  data: {},
+  data,
   impact: {
     currentlyInfected: data.reportedCases * 10,
-    infectionsByRequestedTime: data.reportedCases * 10 * 512,
-    severeCasesByRequestedTime: 0.15 * data.reportedCases * 10 * 512,
-    hospitalBedsByRequestedTime: 23,
-    casesForICUByRequestedTime: 0.05 * data.reportedCases * 10 * 512,
-    casesForVentilatorsByRequestedTime: 0.02 * data.reportedCases * 10 * 512
-    // dollarInFlight:
-    //   this.infectionsByRequestedTime *
-    //   data.region.avgDailyIncomePopulation *
-    //   data.region.avgDailyIncomeInUSD *
-    //   30
+    infectionsByRequestedTime: impactInfectionsByRequestedTime()
   },
   severeImpact: {
     currentlyInfected: data.reportedCases * 50,
-    infectionsByRequestedTime: data.reportedCases * 50 * 512,
-    severeCasesByRequestedTime: 0.15 * data.reportedCases * 50 * 512,
-    hospitalBedsByRequestedTime: 23,
-    casesForICUByRequestedTime: 0.05 * data.reportedCases * 50 * 512,
-    casesForVentilatorsByRequestedTime: 0.02 * data.reportedCases * 50 * 512
+    infectionsByRequestedTime: severeInfectionsByRequestedTime()
   }
 });
 

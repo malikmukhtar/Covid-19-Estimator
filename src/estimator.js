@@ -1,3 +1,4 @@
+// Normalizing Impact
 const impactInfectionsByRequestedTime = (data) => {
   if (data.periodType === 'days') {
     return Math.trunc(data.timeToElapse / 3);
@@ -10,7 +11,7 @@ const impactInfectionsByRequestedTime = (data) => {
   }
   return 0;
 };
-
+// Normalizing Severe
 const severeInfectionsByRequestedTime = (data) => {
   if (data.periodType === 'days') {
     return Math.trunc(data.timeToElapse / 3);
@@ -23,7 +24,7 @@ const severeInfectionsByRequestedTime = (data) => {
   }
   return 0;
 };
-
+// Estimator
 const covid19ImpactEstimator = (data) => ({
   data,
   impact: {
@@ -36,7 +37,7 @@ const covid19ImpactEstimator = (data) => ({
       * 10
       * 2 ** impactInfectionsByRequestedTime(data),
     hospitalBedsByRequestedTime: Math.trunc(
-      0.35 * data.totalHospitalBeds
+      0.65 * data.totalHospitalBeds
       - 0.15
       * data.reportedCases
       * 10

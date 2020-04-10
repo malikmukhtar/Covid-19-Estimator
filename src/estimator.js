@@ -54,7 +54,12 @@ const covid19ImpactEstimator = (data) => ({
       * data.reportedCases
       * 10
       * 2 ** impactInfectionsByRequestedTime(data)
-    )
+    ),
+    dollarsInFlight:
+      (impactInfectionsByRequestedTime(data)
+        * data.region.avgDailyIncomePopulation
+        * data.region.avgDailyIncomeInUSD)
+      / data.timeToElapse
   },
   severeImpact: {
     currentlyInfected: data.reportedCases * 50,
@@ -84,7 +89,12 @@ const covid19ImpactEstimator = (data) => ({
       * data.reportedCases
       * 50
       * 2 ** severeInfectionsByRequestedTime(data)
-    )
+    ),
+    dollarsInFlight:
+      (severeInfectionsByRequestedTime(data)
+        * data.region.avgDailyIncomePopulation
+        * data.region.avgDailyIncomeInUSD)
+      / data.timeToElapse
   }
 });
 

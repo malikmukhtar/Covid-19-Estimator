@@ -53,14 +53,14 @@ const covid19ImpactEstimator = (data) => ({
       data.reportedCases
       * 0.15
       * 50
-      * 2 ** impactInfectionsByRequestedTime(data)
+      * 2 ** severeInfectionsByRequestedTime(data)
     ),
     hospitalBedsByRequestedTime: Math.trunc(
       0.35 * data.totalHospitalBeds
       - 0.15
       * data.reportedCases
       * 50
-      * 2 ** impactInfectionsByRequestedTime(data)
+      * 2 ** severeInfectionsByRequestedTime(data)
     )
   }
 });

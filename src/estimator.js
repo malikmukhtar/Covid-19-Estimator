@@ -59,7 +59,7 @@ const covid19ImpactEstimator = (data) => ({
       0.65 * data.totalHospitalBeds
       - 0.15
       * data.reportedCases
-      * 0
+      * 50
       * 2 ** impactInfectionsByRequestedTime(data)
     )
   }

@@ -38,7 +38,7 @@ const covid19ImpactEstimator = (data) => ({
       * 2 ** impactInfectionsByRequestedTime(data)
     ),
     hospitalBedsByRequestedTime: Math.trunc(
-      0.65 * data.totalHospitalBeds
+      0.35 * data.totalHospitalBeds
       - 0.15
       * data.reportedCases
       * 10
@@ -56,7 +56,7 @@ const covid19ImpactEstimator = (data) => ({
       * 2 ** impactInfectionsByRequestedTime(data)
     ),
     hospitalBedsByRequestedTime: Math.trunc(
-      0.65 * data.totalHospitalBeds
+      0.35 * data.totalHospitalBeds
       - 0.15
       * data.reportedCases
       * 50

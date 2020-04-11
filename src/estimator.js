@@ -1,4 +1,4 @@
-// Normalizing Impact...
+// Normalizing Impact
 const impactInfectionsByRequestedTime = (data) => {
   if (data.periodType === 'days') {
     return Math.trunc(data.timeToElapse / 3);

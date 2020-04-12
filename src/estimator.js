@@ -11,7 +11,7 @@ const impactInfectionsByRequestedTime = (data) => {
   }
   return 0;
 };
-// Normalizing Severe
+// Normalizing Severe.
 const severeInfectionsByRequestedTime = (data) => {
   if (data.periodType === 'days') {
     return Math.trunc(data.timeToElapse / 3);

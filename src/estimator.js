@@ -29,8 +29,8 @@ const covid19ImpactEstimator = (data) => ({
   data,
   impact: {
     currentlyInfected: data.reportedCases * 10,
-    infectionsByRequestedTime:
-      data.reportedCases * 10 * 2 ** impactInfectionsByRequestedTime(data),
+    infectionsByRequestedTime: Math.trunc(
+      data.reportedCases * 10 * 2 ** impactInfectionsByRequestedTime(data)),
     severeCasesByRequestedTime: Math.trunc(
       0.15
       * data.reportedCases
@@ -66,8 +66,8 @@ const covid19ImpactEstimator = (data) => ({
   },
   severeImpact: {
     currentlyInfected: data.reportedCases * 50,
-    infectionsByRequestedTime:
-      data.reportedCases * 50 * 2 ** severeInfectionsByRequestedTime(data),
+    infectionsByRequestedTime: Math.trunc(
+      data.reportedCases * 50 * 2 ** severeInfectionsByRequestedTime(data)),
     severeCasesByRequestedTime: Math.trunc(
       data.reportedCases
       * 0.15

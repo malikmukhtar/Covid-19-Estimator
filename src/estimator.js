@@ -44,7 +44,7 @@ const covid19ImpactEstimator = (data) => ({
       * data.reportedCases
       * 10
       * 2 ** infectionsByRequestedTime(data)
-    ) + 1,
+    ),
     casesForICUByRequestedTime:
       0.05
       * data.reportedCases
@@ -82,7 +82,7 @@ const covid19ImpactEstimator = (data) => ({
       * data.reportedCases
       * 50
       * 2 ** infectionsByRequestedTime(data)
-    ) + 1,
+    ),
     casesForICUByRequestedTime: Math.trunc(
       0.05
       * data.reportedCases

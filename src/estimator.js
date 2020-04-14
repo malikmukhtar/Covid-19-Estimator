@@ -14,17 +14,17 @@ const convertToDays = (data) => {
   return 0;
 };
 
-// Estimator..
+// Estimator...
 const covid19ImpactEstimator = (data) => {
   // Challenge 1
 
   impact.currentlyInfected = data.reportedCases * 10;
   severeImpact.currentlyInfected = data.reportedCases * 50;
 
-  impact.infectionsByRequestedTime =
-    impact.currentlyInfected * 2 ** Math.trunc(convertToDays(data) / 3);
-  severeImpact.infectionsByRequestedTime =
-    severeImpact.currentlyInfected * 2 ** Math.trunc(convertToDays(data) / 3);
+  impact.infectionsByRequestedTime = impact.currentlyInfected
+    * 2 ** Math.trunc(convertToDays(data) / 3);
+  severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected
+    * 2 ** Math.trunc(convertToDays(data) / 3);
 
   // Challenge 2
 
@@ -59,16 +59,14 @@ const covid19ImpactEstimator = (data) => {
   );
 
   impact.dollarsInFlight = Math.trunc(
-    (impact.infectionsByRequestedTime *
-      data.region.avgDailyIncomePopulation *
-      data.region.avgDailyIncomeInUSD) /
-      convertToDays(data)
+    (impact.infectionsByRequestedTime
+      * data.region.avgDailyIncomePopulation
+      * data.region.avgDailyIncomeInUSD) / convertToDays(data)
   );
   severeImpact.dollarsInFlight = Math.trunc(
-    (severeImpact.infectionsByRequestedTime *
-      data.region.avgDailyIncomePopulation *
-      data.region.avgDailyIncomeInUSD) /
-      convertToDays(data)
+    (severeImpact.infectionsByRequestedTime
+      * data.region.avgDailyIncomePopulation
+      * data.region.avgDailyIncomeInUSD) / convertToDays(data)
   );
 
   return { data, impact, severeImpact };

@@ -14,7 +14,7 @@ const convertToDays = (data) => {
   return 0;
 };
 
-// Estimator...
+// Estimator
 const covid19ImpactEstimator = (data) => {
   // Challenge 1
 
